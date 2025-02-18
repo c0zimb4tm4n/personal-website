@@ -1,26 +1,38 @@
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { BrowserRouter as Router, Routes, Route, useNavigate } from "react-router-dom";
 import Navbar from './components/navbar'
-import Home from './pages/home'
-import About from './pages/about'
-import Experience from './pages/experience'
-import Project from './pages/projects'
-import Hobby from './pages/hobby'
-import { useState } from 'react'
+import Home from './sections/home'
+import About from './sections/about'
+import Experience from './sections/experience'
+import Project from './sections/projects'
+import Hobby from './sections/hobby'
+import { useEffect, useState } from 'react'
 import './App.css'
 
 function App() {
-
   return (
-    <Router>
+    <div className="scroll-smooth">
+      {/* Navbar */}
       <Navbar />
-      <Routes>
-        <Route path="/" element={<Home />}> </Route>
-        <Route path="/about" element={<About />}> </Route>
-        <Route path="/experience" element={<Experience />}> </Route>
-        <Route path="/projects" element={<Project />}> </Route>
-        <Route path="/hobbies" element={<Hobby />}> </Route>
-      </Routes>
-    </Router>
+
+      {/* Sections */}
+      <div className="w-full">
+        <section id="home" className="h-screen w-full flex items-center justify-center bg-gray-900 text-white">
+          <Home />
+        </section>
+        <section id="about" className="h-screen w-full flex items-center justify-center bg-gray-800 text-white">
+          <About />
+        </section>
+        <section id="experience" className="h-screen w-full flex items-center justify-center bg-gray-700 text-white">
+          <Experience />
+        </section>
+        <section id="projects" className="h-screen w-full flex items-center justify-center bg-gray-600 text-white">
+          <Project />
+        </section>
+        <section id="hobbies" className="h-screen w-full flex items-center justify-center bg-gray-600 text-white">
+          <Hobby />
+        </section>
+      </div>
+    </div>
   );
 }
 
